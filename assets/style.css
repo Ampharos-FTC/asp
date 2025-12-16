@@ -7,16 +7,15 @@
   --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
   /* Default (light) theme */
-  --bg: #fff;
-  --accent-bg: #f5f7ff;
-  --text: #212121;
-  --text-light: #585858;
-  --border: #d8dae1;
-  --accent: #0d47a1;
-  --code: #d81b60;
-  --preformatted: #444;
-  --marked: #ffdd33;
-  --disabled: #efefef;
+    --bg: #101010;
+    --accent-bg: #121212;
+    --text: #f4f4f4;
+    --text-light: #ababab;
+    --border: #666;
+    --accent: #ffc107;
+    --code: #f06292;
+    --preformatted: #6e6e6e;
+    --disabled: #111;
 }
 
 /* Dark theme */
