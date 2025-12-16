@@ -21,7 +21,7 @@
 
 <nav>
   
-  <a href="/asp">Home</a>
+  <a href="/asp/">Home</a>
   
   <a href="/asp/pages/documentation.html">Documentation</a>
   
@@ -129,13 +129,13 @@
   <article>
         <h3 id="paths">Paths</h1>
       <p>
-        Paths are used by our <mark>MecanumDriveTrain</mark>
-        A Path inside of <b>ASP</b> consits of many Poses.<br>
+        Paths are used by our <mark>MecanumDriveTrain</mark><br>
+        A Path in <b>ASP</b> consits of many Poses.<br>
         <br>
         Making a new Path is also very easy.
         <md>
           Pose2D myPose1 = new Pose2D(67, 41, 5);
-          Pose2D myPose2 = new Pose2D(67, 41, 5);
+          Pose2D myPose2 = new Pose2D(41, 67, -5);
 
           Path myPath = new Path()
           .add(myPose1)
