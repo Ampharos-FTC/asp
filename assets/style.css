@@ -21,12 +21,10 @@
 
 /* Dark theme */
 
-
-
 @media (prefers-color-scheme: dark) {
   
 	.anchorjs-link {
-    color: #ff5231;
+    color: #3161ff;
 }
 
  code[class*="language-"],
@@ -109,7 +107,7 @@ pre[class*="language-"] {
 
 .token.atrule,
 .token.keyword {
-	color: #cb4b16;
+	color: #167dcb;
 }
 
 .token.attr-value {
@@ -158,14 +156,14 @@ pre[class*="language-"] {
 }
  
   :root {
-    --bg: #212121;
-    --accent-bg: #2b2b2b;
-    --text: #dcdcdc;
+    --bg: #101010;
+    --accent-bg: #121212;
+    --text: #f4f4f4;
     --text-light: #ababab;
     --border: #666;
-    --accent: #ffb300;
+    --accent: #ffc107;
     --code: #f06292;
-    --preformatted: #ccc;
+    --preformatted: #6e6e6e;
     --disabled: #111;
   }
   /* Add a bit of transparancy so light media isn't so glaring in dark mode */
