@@ -34,140 +34,130 @@
 
 <main>
   <fieldset>
-  <legend>Table Of Contents</legend>
-        
-      
-  <ul>
-    <li><a href="#setup"><b>Setting Up</a></b><ul>
-    <li><a href="#downloading">Downloading</a></li>
-    <li><a href="#tuning">Tuning</a></li>
-    <li><a href="#troubleshooting">Troubleshooting</a></li>
-  </ul>
+    <legend>Table of Contents</legend>
+    <ul>
+      <li><a href="#getting-started"><b>Getting Started</b></a>
+        <ul>
+          <li><a href="#downloading">Downloading</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+      </li>
 
-  </ul>
-  <ul>
-    <li><a href="#auto"><b>Making an Autonomous</a></b><ul>
-    <li><a href="#poses">Creating a class</a></li>
-    <li><a href="#visualizer">Using ASP Path Visualizer</a></li>
-    <li><a href="#paths">Creating a pose</a></li>
-    <li><a href="#about">Creating paths</a></li>
-  </ul>
-</fieldset>
+      <li><a href="#tuning"><b>Tuning</b></a>
+        <ul>
+          <li><a href="#drive-tuning">Drive Train Tuning</a></li>
+          <li><a href="#mecanum-tuning">Mecanum Tuning</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#autonomous"><b>Autonomous</b></a>
+        <ul>
+          <li><a href="#poses">Poses</a></li>
+          <li><a href="#paths">Paths</a></li>
+          <li><a href="#example-auto">Example Autonomous</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#tools"><b>Tools</b></a>
+        <ul>
+          <li><a href="#visualizer">ASP Path Visualizer</a></li>
+        </ul>
+      </li>
+    </ul>
+  </fieldset>
 
 <article>
-  <h1 id="setup">Setting Up</h1>
+  <h2 id="getting-started">Getting Started</h2>
 
-  <h3>Downloading</h3>
-      <p>
-        You can get <b>ASP</b>, in our <mark>GitHub page</mark> for either <b>OnBotJava</b> or <b>Android Studio</b>.
-      </p>
+  <h3 id="downloading">Downloading</h3>
+  <p>
+    You can download <b>ASP</b> from our <mark>GitHub</mark> page.
+    Versions are available for <b>OnBotJava</b> and <b>Android Studio</b>.
+  </p>
 
-  <h3>Tuning</h3>
-        <p>ASP Currently comes with only <b>Mecanum Drive Train</b> for the <b>GoBildaPinpointComputer</b> localization.</b> 
-        <br>
-        We do plan on adding other Drive Trains and Localization methods in the future.
-        <br>
-  <h3>Tuning | Drive Train</h3>
-        Each Drive Train has its own Tuning Settings. <br>
-        <br>
-        Every Tuning has base PID variables, kI, kP and kD, for Translation and Heading.<br>
-        And distance Tolerance (Inches and Degrees).
-  <h3>Tuning | Mecanum Drive Train</h3>
-        Here is an example for the <b>Mecanum Tuning</b> class :
-
-        <md>
-          public class MyMecanumTuning extends ASPMecanumTuning
-          {
-              // Translation PID
-              double kPT = 0.02;
-              double kIT = 0.06;
-              double kDT = 0.44;
-
-              // Heading PID
-              double kPH = 0.05;
-              double kIH = 0.12;
-              double kDH = 0.44;
-
-              // Tolerance
-              double translationTolerance = 2.3; // Inches
-              double headinTolerance = 2; // Degrees
-
-              // Mecanum : 
-              // Motors
-              // Front Left
-              public String frontLeftMotorName = "";
-              public DcMotor.ZeroPowerBehavior frontLeftMotorZPB = DcMotor.ZeroPowerBehavior.BRAKE;
-              public DcMotorSimple.Direction frontLeftMotorDirection = DcMotorSimple.Direction.FORWARD; 
-              
-              // Front Right
-              public String frontRightMotorName = "";
-              public DcMotor.ZeroPowerBehavior frontRightMotorZPB = DcMotor.ZeroPowerBehavior.BRAKE;
-              public DcMotorSimple.Direction frontRightMotorDirection = DcMotorSimple.Direction.FORWARD;
-              
-              // Back Left
-              public String backLeftMotorName = "";
-              public DcMotor.ZeroPowerBehavior backLeftMotorZPB = DcMotor.ZeroPowerBehavior.BRAKE;
-              public DcMotorSimple.Direction backLeftMotorDirection = DcMotorSimple.Direction.FORWARD;
-              
-              // Back Right  
-              public String backRightMotorName = "";
-              public DcMotor.ZeroPowerBehavior backRightMotorZPB = DcMotor.ZeroPowerBehavior.BRAKE;
-              public DcMotorSimple.Direction backRightMotorDirection = DcMotorSimple.Direction.FORWARD;
-          }
-        </md>
-
-        Motor Settings go by what you have set for your robot.
-        <br>
-        <br>
-        PID can be setup using the Autonomous class <b>ASPMecanumTuningTest</b>, and tweaking the values as you watch it move.
-        <br>
-        <br>
-        This tutorial shows how to set it up easily : 
-        <br>
-        (Put video showing how to do it)
-      </p>
-  
-  <h3>Troubleshooting</h3>
-      <kbd id="troubleshooting">No andar da carroça, as melancias se ajeitam.</kbd>
-      <p>Please wait while we work on this :P</p>
-
-
-
+  <h3 id="troubleshooting">Troubleshooting</h3>
+  <kbd>On the walk of the carroça the watermelon fix themselves.</kbd>
+  <p>You can join our Discord server to get help : </p>
 </article>
+
+
+<article>
+  <h2 id="tuning">Tuning</h2>
+
+  <p>
+    ASP currently supports <b>Mecanum Drive</b> using
+    <b>GoBilda Pinpoint Computer</b> localization.
+  </p>
+
+  <h3 id="drive-tuning">Drive Train Tuning</h3>
+  <p>
+    Each drive train has its own tuning class.
+    Tuning includes:
+  </p>
+  <ul>
+    <li>Translation PID (kPT, kIT, kDT)</li>
+    <li>Heading PID (kPH, kIH, kDH)</li>
+    <li>Distance tolerances (inches & degrees)</li>
+  </ul>
+
+  <h3 id="mecanum-tuning">Mecanum Tuning Example</h3>
+
+<pre> 
+    <code> 
+    public class MyMecanumTuning extends ASPMecanumTuning {
+
+        // Translation PID
+        double kPT = 0.02;
+        double kIT = 0.06;
+        double kDT = 0.44;
+
+        // Heading PID
+        double kPH = 0.05;
+        double kIH = 0.12;
+        double kDH = 0.44;
+
+        // Tolerances
+        double translationTolerance = 2.3; // inches
+        double headingTolerance = 2; // degrees
+
+        // Motor configuration...
+    }
+  </pre> 
+</code> 
   
 <footer>
 </footer>
 
 <article>
-      <h1 id="#auto">Autonomous</h1>
-      <p>
-        Making an Autonomous with <b>ASP</b> should be really straight forward. <br>
-        After you've tuned your robot, you can use <a href="google.com"><mark>ASP Visualizer</mark></a>
-        to create <a href="poses">Poses</a> and <a href="paths">Paths</a>.
-      </p>
-  
-      <blockquote>
-        <p class="test-class">
-          "The best autonomous is the one that doesn't do what you expect"
-        </p>
-        <a href="#">- God Of Resenha</a>
-      </blockquote>
-  </article>
+  <h2 id="autonomous">Autonomous</h2>
+
+  <p>
+    Creating an Autonomous with <b>ASP</b> is straightforward once your robot
+    is tuned.
+  </p>
+
+  <blockquote>
+    <p>"The best autonomous is the one that behaves exactly as tested. (Until the match starts.)"</p>
+    <footer>- Marques, João.</footer>
+  </blockquote>
+</article>
 
 
-  <article>
-        <h3 id="poses">Poses</h1>
-      <p>
-        A Pose is the robot position inside of the field, it has X, Y and Heading, for simplicity X and Y are measured in <b>Inches</b>
-        and Heading in <b>Degrees</b>. <br>
-        <br>
-        Every <b>ASP</b> Pose2D needs 3 values, Robot X, Robot Y, and Robot Heading.
-        <md>
-          ASPPose2D myPose1 = new Pose2D(67, 41, 5);
-          ASPPose2D myPose2 = new Pose2D(67, 41, 25);
-        </md>
-      </p>
-  </article>
+
+<article>
+  <h3 id="poses">Poses</h3>
+    <p>
+      A Pose represents the robot position on the field:
+      <b>X</b>, <b>Y</b> (in inches), and <b>Heading</b> (degrees).
+    </p>
+
+    <code>
+      <pre>
+      ASPPose2D pose1 = new ASPPose2D(67, 41, 5);
+      ASPPose2D pose2 = new ASPPose2D(67, 41, 25);
+      </pre> 
+    </code> 
+</article>
 
   <article>
         <h3 id="paths">Paths</h1>
@@ -175,14 +165,17 @@
         Paths are used by our <mark>Drive Trains</mark><br>
         A Path in <b>ASP</b> consits of many Poses.<br>
         <br>
-        Making a new Path is very easy.
-        <md>
+        Making a new Path is very easy.</p>
+        <code>
+          <pre>
           ASPPose2D myPose1 = new Pose2D(67, 41, 5);
 
           new ASPPath().add(new ASPPose2D(0, 0, 0))
           .add(new ASPPose2D(0, 15, 0))
           .add(new ASPPose2D(0, 15, 25))
           .add(myPose1);
+          </pre> 
+        </code> 
         </md>
       </p>
   </article>
@@ -233,13 +226,14 @@
   </article>
 
   <article>
-      <h3 id="visualizer">ASP Path Visualizer</h1>
-      <p>
-        ASP Path Visualizer is a Tool we created to make it easier to create and visualize Paths.
-        You can get it <a href="google.com/search?=67">here</a>.
-      </p>
-    <br>
-  </article>
+    <h2 id="tools">Tools</h2>
+
+    <h3 id="visualizer">ASP Path Visualizer</h3>
+    <p>
+      The ASP Path Visualizer helps you create and preview paths visually.
+      You can download it <a href="#">here</a>.
+    </p>
+</article>
 
 </main>
 
@@ -249,19 +243,4 @@
       <address>ampharosftc@gmail.com</address>
 </footer>
   
-            
-<!-- Cool scroll effect from this guy: https://gist.github.com/flesler/ -->
-<script>
-  // Bind to the click of all links with a #hash in the href
-  $('a[href^="#"]').click(function(e) {
-    // Prevent the jump and the #hash from appearing on the address bar
-    e.preventDefault();
-    // Scroll the window, stop any previous animation, stop on user manual scroll
-    // Check https://github.com/flesler/jquery.scrollTo for more customizability
-    $(window).stop(true).scrollTo(this.hash, {duration:500, interrupt:false});
-  });
-  </script>
-   
- <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag-commonmark.js"></script>   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>  
+          
