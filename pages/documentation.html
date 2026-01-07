@@ -1,7 +1,6 @@
 <head>
-
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
     
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,7 @@
 <link rel="apple-touch-icon" href="../assets/images/favicon.png">
 
 
-  </head>
+</head>
 <header>
 
 <nav>
@@ -32,8 +31,6 @@
       <h1>Documentation</h1>
       <p>ASP Documentation.</p>
     </header>  
-
-
 
 <main>
   <fieldset>
@@ -66,13 +63,75 @@
       </p>
 
   <h3>Tuning</h3>
-        <p>Please wait while we work on this :P</p>
+        <p>ASP Currently comes with only <b>Mecanum Drive Train</b> for the <b>GoBildaPinpointComputer</b> localization.</b> 
+        <br>
+        We do plan on adding other Drive Trains and Localization methods in the future.
+        <br>
+  <h3>Tuning | Drive Train</h3>
+        Each Drive Train has its own Tuning Settings. <br>
+        <br>
+        Every Tuning has base PID variables, kI, kP and kD, for Translation and Heading.<br>
+        And distance Tolerance (Inches and Degrees).
+  <h3>Tuning | Mecanum Drive Train</h3>
+        Here is an example for the <b>Mecanum Tuning</b> class :
 
-  <br>
+        <md>
+          public class MyMecanumTuning extends ASPMecanumTuning
+          {
+              // Translation PID
+              double kPT = 0.02;
+              double kIT = 0.06;
+              double kDT = 0.44;
+
+              // Heading PID
+              double kPH = 0.05;
+              double kIH = 0.12;
+              double kDH = 0.44;
+
+              // Tolerance
+              double translationTolerance = 2.3; // Inches
+              double headinTolerance = 2; // Degrees
+
+              // Mecanum : 
+              // Motors
+              // Front Left
+              public String frontLeftMotorName = "";
+              public DcMotor.ZeroPowerBehavior frontLeftMotorZPB = DcMotor.ZeroPowerBehavior.BRAKE;
+              public DcMotorSimple.Direction frontLeftMotorDirection = DcMotorSimple.Direction.FORWARD; 
+              
+              // Front Right
+              public String frontRightMotorName = "";
+              public DcMotor.ZeroPowerBehavior frontRightMotorZPB = DcMotor.ZeroPowerBehavior.BRAKE;
+              public DcMotorSimple.Direction frontRightMotorDirection = DcMotorSimple.Direction.FORWARD;
+              
+              // Back Left
+              public String backLeftMotorName = "";
+              public DcMotor.ZeroPowerBehavior backLeftMotorZPB = DcMotor.ZeroPowerBehavior.BRAKE;
+              public DcMotorSimple.Direction backLeftMotorDirection = DcMotorSimple.Direction.FORWARD;
+              
+              // Back Right  
+              public String backRightMotorName = "";
+              public DcMotor.ZeroPowerBehavior backRightMotorZPB = DcMotor.ZeroPowerBehavior.BRAKE;
+              public DcMotorSimple.Direction backRightMotorDirection = DcMotorSimple.Direction.FORWARD;
+          }
+        </md>
+
+        Motor Settings go by what you have set for your robot.
+        <br>
+        <br>
+        PID can be setup using the Autonomous class <b>ASPMecanumTuningTest</b>, and tweaking the values as you watch it move.
+        <br>
+        <br>
+        This tutorial shows how to set it up easily : 
+        <br>
+        (Put video showing how to do it)
+      </p>
   
   <h3>Troubleshooting</h3>
       <kbd id="troubleshooting">No andar da carroça, as melancias se ajeitam.</kbd>
       <p>Please wait while we work on this :P</p>
+
+
 
 </article>
   
@@ -93,57 +152,84 @@
         </p>
         <a href="#">- God Of Resenha</a>
       </blockquote>
-
-      <p class="test-class">
-        <b>ASP</b> Uses 2D Poses and automatically creates Paths with those poses.
-      </p>
-      <p class="test-class">
-       
-      <code>
-        <pre>
-          Please wait while we work on this :P
-        </pre>
-      </code>
-
-      </p>
-    </article>
+  </article>
 
 
   <article>
         <h3 id="poses">Poses</h1>
       <p>
         A Pose is the robot position inside of the field, it has X, Y and Heading, for simplicity X and Y are measured in <b>Inches</b>
-        and Heading is in <b>Degrees</b>. <br>
+        and Heading in <b>Degrees</b>. <br>
         <br>
-        Every pose in <b>ASP</b> needs 3 values, Robot X, Robot Y, and Robot Heading.
-        Creating a Pose with those values is very easy : 
+        Every <b>ASP</b> Pose2D needs 3 values, Robot X, Robot Y, and Robot Heading.
         <md>
-          Pose2D myPose1 = new Pose2D(67, 41, 5);
-          Pose2D myPose2 = new Pose2D(67, 41, 5);
+          ASPPose2D myPose1 = new Pose2D(67, 41, 5);
+          ASPPose2D myPose2 = new Pose2D(67, 41, 25);
         </md>
       </p>
-    
-    <br>
   </article>
 
   <article>
         <h3 id="paths">Paths</h1>
       <p>
-        Paths are used by our <mark>MecanumDriveTrain</mark><br>
+        Paths are used by our <mark>Drive Trains</mark><br>
         A Path in <b>ASP</b> consits of many Poses.<br>
         <br>
-        Making a new Path is also very easy.
+        Making a new Path is very easy.
         <md>
-          Pose2D myPose1 = new Pose2D(67, 41, 5);
-          Pose2D myPose2 = new Pose2D(41, 67, -5);
+          ASPPose2D myPose1 = new Pose2D(67, 41, 5);
 
-          Path myPath = new Path()
-          .add(myPose1)
-          .add(myPose2);
+          new ASPPath().add(new ASPPose2D(0, 0, 0))
+          .add(new ASPPose2D(0, 15, 0))
+          .add(new ASPPose2D(0, 15, 25))
+          .add(myPose1);
         </md>
       </p>
-    
-    <br>
+  </article>
+
+  <article>
+  <h3>Example</h3>
+  <p class="test-class">
+        Here is an Example <b>MecanumDriveTrain</b> Autonomous class.
+      </p>
+      <p class="test-class">
+       
+      <code>
+        <pre>
+        @Autonomous
+        public class MyASPAutonomous extends LinearOpMode {
+            ASPLocalizer localizer;
+            ASPMecanumDriveTrain drive;
+
+            @Override
+            public void runOpMode() {
+                // Initializes our Localizer
+                localizer = new ASPPinpointLocalizer(
+                        hardwareMap,
+                        new ASPPose2D(0, 0, 0)
+                );
+
+                // Initializes our DriveTrain
+                drive = new ASPMecanumDriveTrain(hardwareMap, localizer, new MyASPMecanumTuning());
+
+                // Creates a Path
+                drive.paths = new ASPPath().add(new ASPPose2D(0, 0, 0))
+                .add(new ASPPose2D(0, 15, 0))
+                .add(new ASPPose2D(0, 15, 25))
+                .add(new ASPPose2D(0, 0, 0));
+
+                waitForStart();
+
+                while (opModeIsActive()) {
+                    drive.update(); // Updates DriveTrain
+                    drive.followTarget(); // Follows the path
+                }
+            }
+        }
+        </pre>
+      </code>
+
+      </p>
   </article>
 
   <article>

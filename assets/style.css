@@ -156,14 +156,14 @@ pre[class*="language-"] {
  
   :root {
     --bg: #101010;
-    --accent-bg: #121212;
+    --accent-bg:  #121212;
     --text: #f4f4f4;
     --text-light: #ababab;
     --border: #666;
     --accent: #ffc107;
     --code: #f06292;
     --preformatted: #6e6e6e;
-    --disabled: #111;
+    --disabled: #111111;
   }
   /* Add a bit of transparancy so light media isn't so glaring in dark mode */
   img,
@@ -580,7 +580,7 @@ hr {
 mark {
   padding: 2px 5px;
   border-radius: 4px;
-  background: var(--marked);
+  background: #ffc107;
 }
 
 main img,
