@@ -63,98 +63,99 @@
   <!-- CONTENT -->
   <section class="docs-content">
 
-    <article>
-  <h2 id="getting-started">Getting Started</h2>
+  <article>
+    <h2 id="getting-started">Getting Started</h2>
 
-  <h3 id="downloading">Downloading</h3>
-  <p>
-    You can download <b>ASP</b> from our <mark>GitHub</mark> page.
-    Versions are available for <b>OnBotJava</b> and <b>Android Studio</b>.
-  </p>
-
-  <h3 id="troubleshooting">Troubleshooting</h3>
-  <kbd>drive.followTarget();</kbd>
-  <p>You can join our Discord server to get help : </p>
-  <p>Or ping <b>@jaumthe16th</b> in the FTC official discord.</p>
-</article>
-
-
-<article>
-  <h2 id="tuning">Tuning</h2>
-
-  <p>
-    ASP currently supports <b>Mecanum Drive</b> using
-    <b>GoBilda Pinpoint Computer</b> localization.
-  </p>
-
-  <h3 id="drive-tuning">Drive Train Tuning</h3>
-  <p>
-    Each drive train has its own tuning class.
-    Tuning includes:
-  </p>
-  <ul>
-    <li>Translation PID (kPT, kIT, kDT)</li>
-    <li>Heading PID (kPH, kIH, kDH)</li>
-    <li>Distance tolerances (inches & degrees)</li>
-  </ul>
-
-  <h3 id="mecanum-tuning">Mecanum Tuning Example</h3>
-
-<pre> 
-    <code> 
-    public class MyMecanumTuning extends ASPMecanumTuning {
-
-        // Translation PID
-        double kPT = 0.02;
-        double kIT = 0.06;
-        double kDT = 0.44;
-
-        // Heading PID
-        double kPH = 0.05;
-        double kIH = 0.12;
-        double kDH = 0.44;
-
-        // Tolerances
-        double translationTolerance = 2.3; // inches
-        double headingTolerance = 2; // degrees
-
-        // Motor configuration...
-    }
-  </pre> 
-</code> 
-
-<article>
-  <h2 id="autonomous">Autonomous</h2>
-
-  <p>
-    Creating an Autonomous with <b>ASP</b> is straightforward once your robot
-    is tuned.
-  </p>
-
-  <blockquote>
-    <p>"The best autonomous is the one that behaves exactly as tested. (Until the match starts.)"</p>
-    <footer>- Marques, João.</footer>
-  </blockquote>
-</article>
-
-
-<article>
-  <h3 id="poses">Poses</h3>
+    <h3 id="downloading">Downloading</h3>
     <p>
-      A Pose represents the robot position on the field:
-      <b>X</b>, <b>Y</b> (in inches), and <b>Heading</b> (degrees).
+      You can download <b>ASP</b> from our <mark>GitHub</mark> page.
+      Versions are available for <b>OnBotJava</b> and <b>Android Studio</b>.
     </p>
 
-    <code>
-      <pre>
-      ASPPose2D pose1 = new ASPPose2D(67, 41, 5);
-      ASPPose2D pose2 = new ASPPose2D(67, 41, 25);
-      </pre> 
-    </code> 
-</article>
+    <h3 id="troubleshooting">Troubleshooting</h3>
+    <kbd>drive.followTarget();</kbd>
+    <p>You can join our Discord server to get help : </p>
+    <p>Or ping <b>@jaumthe16th</b> in the FTC official discord.</p>
+  </article>
+
 
   <article>
-        <h3 id="paths">Paths</h1>
+    <h2 id="tuning">Tuning</h2>
+
+    <p>
+      ASP currently supports <b>Mecanum Drive</b> using
+      <b>GoBilda Pinpoint Computer</b> localization.
+    </p>
+
+    <h3 id="drive-tuning">Drive Train Tuning</h3>
+    <p>
+      Each drive train has its own tuning class.
+      Tuning includes:
+    </p>
+    <ul>
+      <li>Translation PID (kPT, kIT, kDT)</li>
+      <li>Heading PID (kPH, kIH, kDH)</li>
+      <li>Distance tolerances (inches & degrees)</li>
+    </ul>
+
+    <h3 id="mecanum-tuning">Mecanum Tuning Example</h3>
+
+    <pre> 
+      <code> 
+        public class MyMecanumTuning extends ASPMecanumTuning {
+
+            // Translation PID
+            double kPT = 0.02;
+            double kIT = 0.06;
+            double kDT = 0.44;
+
+            // Heading PID
+            double kPH = 0.05;
+            double kIH = 0.12;
+            double kDH = 0.44;
+
+            // Tolerances
+            double translationTolerance = 2.3; // inches
+            double headingTolerance = 2; // degrees
+
+            // Motor configuration...
+        }
+      </code> 
+    </pre> 
+  </article>
+
+  <article>
+    <h2 id="autonomous">Autonomous</h2>
+
+    <p>
+      Creating an Autonomous with <b>ASP</b> is straightforward once your robot
+      is tuned.
+    </p>
+
+    <blockquote>
+      <p>"The best autonomous is the one that behaves exactly as tested. (Until the match starts.)"</p>
+      <footer>- Marques, João.</footer>
+    </blockquote>
+  </article>
+
+
+  <article>
+    <h3 id="poses">Poses</h3>
+      <p>
+        A Pose represents the robot position on the field:
+        <b>X</b>, <b>Y</b> (in inches), and <b>Heading</b> (degrees).
+      </p>
+
+      <code>
+        <pre>
+        ASPPose2D pose1 = new ASPPose2D(67, 41, 5);
+        ASPPose2D pose2 = new ASPPose2D(67, 41, 25);
+        </pre> 
+      </code> 
+  </article>
+
+  <article>
+    <h3 id="paths">Paths</h1>
       <p>
         Paths are used by our <mark>Drive Trains</mark><br>
         A Path in <b>ASP</b> consits of many Poses.<br>
@@ -175,12 +176,12 @@
   </article>
 
   <article>
-  <h3>Example</h3>
-  <p class="test-class">
-        Here is an Example <b>MecanumDriveTrain</b> Autonomous class.
-      </p>
-      <p class="test-class">
-       
+    <h3>Example</h3>
+    <p class="test-class">
+          Here is an Example <b>MecanumDriveTrain</b> Autonomous class.
+    </p>
+
+    <p class="test-class">
       <code>
         <pre>
         @Autonomous
@@ -215,29 +216,27 @@
         }
         </pre>
       </code>
-
-      </p>
+    </p>
   </article>
 
   <article>
     <h2 id="tools">Tools</h2>
 
     <h3 id="visualizer">ASP Path Visualizer</h3>
-    <p>
-      The ASP Path Visualizer helps you create and preview paths visually.
-      You can download it <a href="#">here</a>.
-    </p>
-</article>
+      <p>
+        The ASP Path Visualizer helps you create and preview paths visually.
+        You can download it <a href="#">here</a>.
+      </p>
+  </article>
 
   </section>
-  </main>
+</main>
 
-  <footer>
-      <p>[Uh é Paraná].</p>
+<footer>
+  <p>[Uh é Paraná].</p>
   <small>© 2025 Ampharos FTC</small>
-      <address>ampharosftc@gmail.com</address>
+  <address>ampharosftc@gmail.com</address>
 </footer>
   
-
-  </body>
+</body>
 </html>
