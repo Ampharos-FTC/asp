@@ -807,3 +807,82 @@ pre[class*="language-"] {
 .token.italic {
 	font-style: italic;
 }
+
+/* ===============================
+   DOCS PAGE OVERRIDE
+   =============================== */
+
+/* Disable global body grid */
+body.docs {
+  display: block;
+}
+
+/* Prevent grid-column forcing */
+body.docs > * {
+  grid-column: unset;
+}
+
+/* Docs layout */
+.docs-layout {
+  max-width: 1400px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+}
+
+/* Sidebar */
+.docs-sidebar {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.docs-sidebar h3 {
+  margin-top: 0;
+}
+
+.docs-sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.docs-sidebar ul ul {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--border);
+}
+
+.docs-sidebar a {
+  display: block;
+  padding: 0.25rem 0;
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.docs-sidebar a:hover {
+  color: var(--accent);
+}
+
+/* Content */
+.docs-content article {
+  margin-bottom: 4rem;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .docs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-sidebar {
+    position: relative;
+  }
+}
