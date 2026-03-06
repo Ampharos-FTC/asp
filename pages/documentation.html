@@ -17,7 +17,7 @@
   <nav>
     <a href="/asp/">Home</a>
     <a href="/asp/pages/documentation.html">Documentation</a>
-    <a href="https://youtu.be/FVGgr7s8cC8?t=23575">Download</a>
+    <a href="">Download</a>
   </nav>
 
   <h1>Documentation</h1>
@@ -64,6 +64,9 @@
   <section class="docs-content">
 
   <article>
+    <p><b>Ampharos Simple Pathing is still not available for general public, the current ETA is the end of March due to our Nationals Event being held.</b></p>
+    <p><b>This documentation is still not yet complete and missing components under testing (such as Auto Tuning and Tuning in general)</b></p>
+
     <h2 id="getting-started">Getting Started</h2>
 
     <h3 id="downloading">Downloading</h3>
@@ -73,8 +76,7 @@
     </p>
 
     <h3 id="troubleshooting">Troubleshooting</h3>
-    <kbd>drive.followTarget();</kbd>
-    <p>You can join our Discord server to get help : </p>
+    <p>You can join our Discord server to get help :  <a href="https://discord.gg/JXYaVCZrJx">ASP Discord</a></p>
     <p>Or ping <b>@jaumthe16th</b> in the FTC official discord.</p>
   </article>
 
@@ -118,7 +120,7 @@
             double translationTolerance = 2.3; // inches
             double headingTolerance = 2; // degrees
 
-            // Motor configuration...
+            // Motor configuration... (Copy from the ASPMecanumTuning in /asp/tuning/ASPMecanumTuning.java)
         }
       </code> 
     </pre> 
@@ -148,8 +150,8 @@
 
       <code>
         <pre>
-        ASPPose2D pose1 = new ASPPose2D(67, 41, 5);
-        ASPPose2D pose2 = new ASPPose2D(67, 41, 25);
+        ASPPose2D pose1 = new ASPPose2D(0, 0, 5);
+        ASPPose2D pose2 = new ASPPose2D(0, 41, 25);
         </pre> 
       </code> 
   </article>
@@ -163,7 +165,7 @@
         Making a new Path is very easy.</p>
         <code>
           <pre>
-          ASPPose2D myPose1 = new Pose2D(67, 41, 5);
+          ASPPose2D myPose1 = new Pose2D(0, 41, 5);
 
           new ASPPath().add(new ASPPose2D(0, 0, 0))
           .add(new ASPPose2D(0, 15, 0))
